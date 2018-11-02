@@ -35,7 +35,7 @@ cd scripts/
 sed -e "s|\*\*JAVA_SETUP\*\*|export JAVA_HOME=$ZOWE_JAVA_HOME|g" \
     -e 's/\*\*HOSTNAME\*\*/'$ZOWE_EXPLORER_HOST'/g' \
     -e 's/\*\*IPADDRESS\*\*/'$ZOWE_IPADDRESS'/g' \
-    gen-selfsigned-keystore-template.sh > gen-selfsigned-keystore.sh
+    setup-apiml-certificates-template.sh > setup-apiml-certificates.sh
 
 # Make configured script executable
 chmod a+x gen-selfsigned-keystore.sh
@@ -76,7 +76,7 @@ chmod a+x api-mediation-start-catalog.sh
 cd ..
 
 # Execute the self-signed keystore generation - no user input required
-./scripts/gen-selfsigned-keystore.sh
+./scripts/setup-apiml-certificates.sh
 
 # Add apiml catalog tile to zlux 
 CATALOG_GATEWAY_URL=https://$ZOWE_EXPLORER_HOST:$ZOWE_APIM_GATEWAY_HTTPS_PORT/ui/v1/apicatalog
